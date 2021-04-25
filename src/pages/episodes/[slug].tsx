@@ -27,54 +27,54 @@ type EpisodeProps = {
   episode: Episode;
 }
 
-export default function Episode({ episode }: EpisodeProps ) {
+export default function Episode({ episode }: EpisodeProps) {
   const { play } = usePlayer()
 
   return (
     <div className="fundoEpisode">
       <Head>
-      <title>{episode.title} | PodCastr</title>
+        <title>{episode.title} | PodCastr</title>
       </Head>
 
-        <div className={styles.episode}>
+      <div className={styles.episode}>
         <div className={styles.thumbnailContainer}>
-            <Link href="/">
+          <Link href="/">
             <button>
-                <img src="/arrow-left.svg" alt="Voltar"/>
+              <img src="/arrow-left.svg" alt="Voltar" />
             </button>
-            </Link>
-            <Image
+          </Link>
+          <Image
             width={700}
             height={160}
             src={episode.thumbnail}
             objectFit="cover"
-            />
-            <button onClick={() => play(episode)}>
-            <img src="/play.svg" alt="Tocar episódio"/>
-            </button>
+          />
+          <button onClick={() => play(episode)}>
+            <img src="/play.svg" alt="Tocar episódio" />
+          </button>
         </div>
 
         <header>
-            <h1>{episode.title}</h1>
-            <span>{episode.members}</span>
-            <span>{episode.publishedAt}</span>
-            <span>{episode.durationAsString}</span>
+          <h1>{episode.title}</h1>
+          <span>{episode.members}</span>
+          <span>{episode.publishedAt}</span>
+          <span>{episode.durationAsString}</span>
         </header>
 
         <div
-            className={styles.description}
-            dangerouslySetInnerHTML={{
+          className={styles.description}
+          dangerouslySetInnerHTML={{
             __html:
-            episode.description
-            }} 
+              episode.description
+          }}
         />
-        </div>
+      </div>
     </div>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const {data} = await api.get('episodes', {
+  const { data } = await api.get('episodes', {
     params: {
       _limit: 12,
       _sort: 'published_at',
@@ -106,7 +106,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     title: data.title,
     thumbnail: data.thumbnail,
     members: data.members,
-    publishedAt: format(parseISO(data.published_at), 'd MMM yy', { 
+    publishedAt: format(parseISO(data.published_at), 'd MMM yy', {
       locale: ptBR
     }),
     duration: Number(data.file.duration),

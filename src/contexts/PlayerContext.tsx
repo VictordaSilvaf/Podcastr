@@ -9,22 +9,22 @@ type Episode = {
 }
 
 type PlayerContextData = {
-    episodeList: Episode[];
-    currentEpisodeIndex: number;
-    isPlaying: boolean;
-    isLooping: boolean;
-    isShuffling: boolean;
-    play: (episode: Episode) => void;
-    playList: (list: Episode[], index: number) => void;
-    setPlayingState: (state: Boolean) => void;
-    togglePlayer: () => void;
-    toggleLooping: () => void;
-    toggleShuffle: () => void;
-    clearPlayerState: () => void;
-    playNext: () => void;
-    playPrevius: () => void;
-    hasNext: boolean;
-    hasPrevious: boolean;
+  episodeList: Episode[];
+  currentEpisodeIndex: number;
+  isPlaying: boolean;
+  isLooping: boolean;
+  isShuffling: boolean;
+  play: (episode: Episode) => void;
+  playList: (list: Episode[], index: number) => void;
+  setPlayingState: (state: Boolean) => void;
+  togglePlayer: () => void;
+  toggleLooping: () => void;
+  toggleShuffle: () => void;
+  clearPlayerState: () => void;
+  playNext: () => void;
+  playPrevius: () => void;
+  hasNext: boolean;
+  hasPrevious: boolean;
 };
 
 export const PlayerContext = createContext({} as PlayerContextData);
@@ -64,7 +64,7 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
     setIsShuffling(!isShuffling);
   }
 
-  function setPlayingState(state:boolean) {
+  function setPlayingState(state: boolean) {
     setIsPlaying(state);
   }
 
@@ -89,28 +89,28 @@ export function PlayerContextProvider({ children }: PlayerContextProviderProps) 
   function playPrevius() {
     if (hasPrevious) {
       setCurrentEpisodeIndex(currentEpisodeIndex - 1);
-    }    
+    }
   }
 
 
   return (
-    <PlayerContext.Provider 
-    value={{ 
-      episodeList, 
-      currentEpisodeIndex, 
-      play, isPlaying, 
-      playList,
-      playNext,
-      playPrevius,
-      isLooping,
-      togglePlayer,
-      toggleShuffle,
-      toggleLooping,
-      setPlayingState,
-      hasNext,
-      hasPrevious,
-      isShuffling,
-      clearPlayerState,
+    <PlayerContext.Provider
+      value={{
+        episodeList,
+        currentEpisodeIndex,
+        play, isPlaying,
+        playList,
+        playNext,
+        playPrevius,
+        isLooping,
+        togglePlayer,
+        toggleShuffle,
+        toggleLooping,
+        setPlayingState,
+        hasNext,
+        hasPrevious,
+        isShuffling,
+        clearPlayerState,
       }}
     >
       {children}
