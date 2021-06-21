@@ -2,7 +2,7 @@
 
 # NextLevelWeek5 (NLW5) - Trilha React</h1>
 <h3>Podcastr | Escute os podcast da rocketseat</h2>
-Podcastr é uma aplicação web, que conecta uma "fake api" com dados de podcasts das rocketseat dando a possibilidade do usuario escutar e com funcionabilidades pause, tocar aleatorio, repetir...
+Podcastr é uma aplicação web, que conecta uma "fake api" com dados de podcasts da rocketseat dando a possibilidade do usuário escutar e com funcionalidades pause, tocar aleatório, repetir...
 <br>
 <h2>Técnologias: </h2>
 As técnologia ultilizadas para realizar esse projeto foram:
